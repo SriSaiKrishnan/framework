@@ -1,0 +1,33 @@
+package utility;
+
+import org.testng.annotations.DataProvider;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+public final class DataProviderUtils {
+
+    private DataProviderUtils(){}
+
+    @DataProvider
+    public static Object[] getData(Method method){
+
+        String testname = method.getName();
+        List<Map<String,String>> list = ExcelUtils.readExcel("login");
+        List<Map<String,String>> iterationList = new ArrayList<>();
+
+        for (int i=0; i<list.size(); i++){
+
+            if(list.get(i).get("testname").equalsIgnoreCase(testname)
+                    && list.get(i).get("execute").equalsIgnoreCase("yes")){
+                iterationList.add(list.get(i));
+            }
+
+        }
+
+        return iterationList.toArray();
+
+    }
+
+}

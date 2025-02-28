@@ -1,0 +1,40 @@
+package base;
+
+import driver.Driver;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.testng.annotations.*;
+import pages.DashboardPage;
+import pages.LoginPage;
+
+public class BaseTest {
+
+    protected BaseTest(){}
+
+    private static final Logger logger = LogManager.getLogger(BaseTest.class);
+
+    @BeforeMethod(alwaysRun = true)
+    public void setUp() {
+        Driver.initializeDriver();
+    }
+
+    public void login() throws Exception {
+        new LoginPage()
+                .enterUsername("Admin")
+                .enterPassword("admin123")
+                .clickLogin();
+    }
+
+    public void logout() throws Exception {
+        new DashboardPage()
+                .clickProfile()
+                .clickLogout();
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void tearDown() throws Exception {
+        Driver.quitDriver();
+    }
+
+
+}

@@ -1,0 +1,17 @@
+package enums;
+
+public enum ConfigProperties {
+
+    URL,
+    BROWSER,
+    HEADLESS,
+    REMOTE,
+    REMOTEURL,
+    INCOGNITO,
+    OVERRIDE,
+    PASSEDSTEPSSCREENSHOTS,
+    FAILEDSTEPSSCREENSHOTS,
+    SKIPPEDSTEPSSCREENSHOTS,
+    RETRYFAILEDTESTS;
+
+}
