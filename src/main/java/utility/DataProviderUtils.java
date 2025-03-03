@@ -10,11 +10,18 @@ public final class DataProviderUtils {
 
     private DataProviderUtils(){}
 
-    @DataProvider
+    private static String dataSheetName;
+
+    public static void setDataSheetName(String dataSheetName) {
+        DataProviderUtils.dataSheetName = dataSheetName;
+    }
+
+
+    @DataProvider(parallel = true)
     public static Object[] getData(Method method){
 
         String testname = method.getName();
-        List<Map<String,String>> list = ExcelUtils.readExcel("login");
+        List<Map<String,String>> list = ExcelUtils.readExcel(dataSheetName);
         List<Map<String,String>> iterationList = new ArrayList<>();
 
         for (int i=0; i<list.size(); i++){

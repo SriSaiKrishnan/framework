@@ -7,6 +7,9 @@ import org.testng.annotations.*;
 import pages.DashboardPage;
 import pages.LoginPage;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BaseTest {
 
     protected BaseTest(){}
@@ -14,8 +17,9 @@ public class BaseTest {
     private static final Logger logger = LogManager.getLogger(BaseTest.class);
 
     @BeforeMethod(alwaysRun = true)
-    public void setUp() {
-        Driver.initializeDriver();
+    public void setUp(Object[] data) {
+        Map<String,String> map = (Map<String,String>)data[0];
+        Driver.initializeDriver(map.get("browser"));
     }
 
     public void login() throws Exception {

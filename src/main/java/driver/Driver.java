@@ -19,10 +19,9 @@ public final class Driver {
 
     private Driver(){}
 
-    public static WebDriver initializeDriver()  {
+    public static WebDriver initializeDriver(String browserName)  {
         try {
             logger.info("Initializing the driver");
-            String browserName = PropertyUtils.get(ConfigProperties.BROWSER);
             Boolean remoteSession = Boolean.parseBoolean(PropertyUtils.get(ConfigProperties.REMOTE));
             String remoteUrl = PropertyUtils.get(ConfigProperties.REMOTEURL);
 
