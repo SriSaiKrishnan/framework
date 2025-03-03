@@ -6,8 +6,6 @@ import org.apache.logging.log4j.Logger;
 import org.testng.annotations.*;
 import pages.DashboardPage;
 import pages.LoginPage;
-
-import java.util.HashMap;
 import java.util.Map;
 
 public class BaseTest {

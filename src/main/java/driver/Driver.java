@@ -14,7 +14,7 @@ public final class Driver {
 
     private Driver(){}
 
-    public static WebDriver initializeDriver(String browserName)  {
+    public static void initializeDriver(String browserName)  {
         try {
             logger.info("Initializing the driver");
             DriverManager.setDriver(DriverFactory.init(browserName));
@@ -25,7 +25,6 @@ public final class Driver {
             logger.info(e.getMessage());
         }
 
-        return  DriverManager.getDriver();
     }
 
     public static void quitDriver() {
