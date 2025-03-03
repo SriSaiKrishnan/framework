@@ -15,8 +15,8 @@ public final class DriverManager {
         return tlDriver.get();
     }
 
-    public static void setDriver(WebDriver driverRef){
-        tlDriver.set(driverRef);
+    public static void setDriver(WebDriver driver){
+        tlDriver.set(driver);
     }
 
     public static void unload(){
