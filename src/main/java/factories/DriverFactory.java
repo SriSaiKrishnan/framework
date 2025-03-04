@@ -1,8 +1,5 @@
 package factories;
 
-import driver.Driver;
-import driver.DriverManager;
-import driver.OptionsManager;
 import enums.ConfigProperties;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -16,7 +13,6 @@ import utility.PropertyUtils;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Objects;
 
 public final class DriverFactory {
 
@@ -32,13 +28,13 @@ public final class DriverFactory {
                 if (remoteSession) {
                     switch (browserName.toLowerCase().trim()) {
                         case "chrome":
-                            driver = new RemoteWebDriver(new URL(remoteUrl), OptionsManager.getChromeOptions());
+                            driver = new RemoteWebDriver(new URL(remoteUrl), OptionsFactory.getChromeOptions());
                             break;
                         case "firefox":
-                            driver = new RemoteWebDriver(new URL(remoteUrl), OptionsManager.getFirefoxOptions());
+                            driver = new RemoteWebDriver(new URL(remoteUrl), OptionsFactory.getFirefoxOptions());
                             break;
                         case "edge":
-                            driver = new RemoteWebDriver(new URL(remoteUrl), OptionsManager.getEdgeOptions());
+                            driver = new RemoteWebDriver(new URL(remoteUrl), OptionsFactory.getEdgeOptions());
                             break;
                         default:
                             logger.info("please pass the right browser on grid..");
@@ -47,13 +43,13 @@ public final class DriverFactory {
                 } else {
                     switch (browserName.toLowerCase().trim()) {
                         case "chrome":
-                            driver = new ChromeDriver(OptionsManager.getChromeOptions());
+                            driver = new ChromeDriver(OptionsFactory.getChromeOptions());
                             break;
                         case "firefox":
-                            driver = new FirefoxDriver(OptionsManager.getFirefoxOptions());
+                            driver = new FirefoxDriver(OptionsFactory.getFirefoxOptions());
                             break;
                         case "edge":
-                            driver = new EdgeDriver(OptionsManager.getEdgeOptions());
+                            driver = new EdgeDriver(OptionsFactory.getEdgeOptions());
                             break;
                         default:
                             logger.log(Level.INFO, "please pass the right browser name... {} ", browserName);

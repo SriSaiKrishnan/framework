@@ -1,4 +1,4 @@
-package driver;
+package factories;
 
 import enums.ConfigProperties;
 import org.apache.logging.log4j.LogManager;
@@ -8,14 +8,14 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import utility.PropertyUtils;
 
-public final class OptionsManager {
+public final class OptionsFactory {
 
-    private static final Logger logger = LogManager.getLogger(OptionsManager.class);
+    private static final Logger logger = LogManager.getLogger(OptionsFactory.class);
     private static ChromeOptions chromeOptions;
     private static FirefoxOptions firefoxOptions;
     private static EdgeOptions edgeOptions;
 
-    private OptionsManager(){}
+    private OptionsFactory(){}
 
     public static ChromeOptions getChromeOptions() {
         try {

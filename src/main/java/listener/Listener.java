@@ -7,6 +7,7 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import reports.ExtentLogger;
 import reports.ExtentReport;
+import utility.BrowserUtils;
 import utility.ELKUtils;
 
 import java.util.Arrays;
@@ -26,7 +27,7 @@ public class Listener implements ITestListener, ISuiteListener {
     @Override
     public void onTestStart(ITestResult result) {
 
-        ExtentReport.createTest(result.getMethod().getMethodName());
+        ExtentReport.createTest(result.getMethod().getMethodName() + " " + BrowserUtils.getBrowserName() + " " + BrowserUtils.getBrowserVersion());
         ExtentReport.addAuthors(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(FrameworkAnnotations.class).authors());
         ExtentReport.addCategories(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(FrameworkAnnotations.class).categories());
 
