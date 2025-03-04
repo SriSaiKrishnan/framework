@@ -20,21 +20,21 @@ public class BaseTest {
         Driver.initializeDriver(map.get("browser"));
     }
 
-    public void login() throws Exception {
+    public void login() {
         new LoginPage()
                 .enterUsername("Admin")
                 .enterPassword("admin123")
                 .clickLogin();
     }
 
-    public void logout() throws Exception {
+    public void logout() {
         new DashboardPage()
                 .clickProfile()
                 .clickLogout();
     }
 
     @AfterMethod(alwaysRun = true)
-    public void tearDown() throws Exception {
+    public void tearDown() {
         Driver.quitDriver();
     }
 

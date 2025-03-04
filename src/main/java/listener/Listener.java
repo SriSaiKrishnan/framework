@@ -7,6 +7,8 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import reports.ExtentLogger;
 import reports.ExtentReport;
+import utility.ELKUtils;
+
 import java.util.Arrays;
 
 public class Listener implements ITestListener, ISuiteListener {
@@ -33,6 +35,7 @@ public class Listener implements ITestListener, ISuiteListener {
     @Override
     public void onTestSuccess(ITestResult result) {
         ExtentLogger.pass(result.getMethod().getMethodName() + " Passed");
+        ELKUtils.sendResultsToELK(result.getMethod().getMethodName(),"Passed");
     }
 
     @Override
@@ -40,11 +43,13 @@ public class Listener implements ITestListener, ISuiteListener {
         ExtentLogger.fail(result.getMethod().getMethodName() + " Failed",true);
         ExtentLogger.fail(result.getThrowable().toString());
         ExtentLogger.fail(Arrays.toString(result.getThrowable().getStackTrace()));
+        ELKUtils.sendResultsToELK(result.getMethod().getMethodName(),"Failed");
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
         ExtentLogger.skip(result.getMethod().getMethodName() + " Skipped",true);
+        ELKUtils.sendResultsToELK(result.getMethod().getMethodName(),"Skipped");
     }
 
 }

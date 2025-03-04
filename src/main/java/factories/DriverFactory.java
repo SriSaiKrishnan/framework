@@ -28,8 +28,6 @@ public final class DriverFactory {
         Boolean remoteSession = Boolean.parseBoolean(PropertyUtils.get(ConfigProperties.REMOTE));
         String remoteUrl = PropertyUtils.get(ConfigProperties.REMOTEURL);
         WebDriver driver = null;
-
-        if (Objects.isNull(DriverManager.getDriver())) {
             try {
                 if (remoteSession) {
                     switch (browserName.toLowerCase().trim()) {
@@ -64,7 +62,6 @@ public final class DriverFactory {
             }catch (MalformedURLException e){
                 throw new RuntimeException("Error in launching the browser",e);
             }
-        }
         return driver;
     }
 
