@@ -20,7 +20,10 @@ public final class DriverManager {
     }
 
     public static void unload(){
-        tlDriver.remove();
+
+        if (tlDriver.get() != null) {
+            tlDriver.remove();
+            }
+        }
     }
 
-}

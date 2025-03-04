@@ -10,7 +10,6 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import utility.PropertyUtils;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 
