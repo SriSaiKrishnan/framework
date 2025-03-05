@@ -18,23 +18,17 @@ public class BaseTest {
     public void setUp(Object[] data) {
         Map<String,String> map = (Map<String,String>)data[0];
         Driver.initializeDriver(map.get("browser"));
-    }
-
-    public void login() {
         new LoginPage()
                 .enterUsername("Admin")
                 .enterPassword("admin123")
                 .clickLogin();
     }
 
-    public void logout() {
+    @AfterMethod(alwaysRun = true)
+    public void tearDown() {
         new DashboardPage()
                 .clickProfile()
                 .clickLogout();
-    }
-
-    @AfterMethod(alwaysRun = true)
-    public void tearDown() {
         Driver.quitDriver();
     }
 

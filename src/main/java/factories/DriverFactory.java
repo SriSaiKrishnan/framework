@@ -20,20 +20,19 @@ public final class DriverFactory {
     private DriverFactory() {}
 
     public  static WebDriver init(String browserName){
-        Boolean remoteSession = Boolean.parseBoolean(PropertyUtils.get(ConfigProperties.REMOTE));
-        String remoteUrl = PropertyUtils.get(ConfigProperties.REMOTEURL);
+
         WebDriver driver = null;
             try {
-                if (remoteSession) {
+                if (PropertyUtils.get(ConfigProperties.REMOTE).equalsIgnoreCase("yes")) {
                     switch (browserName.toLowerCase().trim()) {
                         case "chrome":
-                            driver = new RemoteWebDriver(new URL(remoteUrl), OptionsFactory.getChromeOptions());
+                            driver = new RemoteWebDriver(new URL(PropertyUtils.get(ConfigProperties.REMOTEURL)), OptionsFactory.getChromeOptions());
                             break;
                         case "firefox":
-                            driver = new RemoteWebDriver(new URL(remoteUrl), OptionsFactory.getFirefoxOptions());
+                            driver = new RemoteWebDriver(new URL(PropertyUtils.get(ConfigProperties.REMOTEURL)), OptionsFactory.getFirefoxOptions());
                             break;
                         case "edge":
-                            driver = new RemoteWebDriver(new URL(remoteUrl), OptionsFactory.getEdgeOptions());
+                            driver = new RemoteWebDriver(new URL(PropertyUtils.get(ConfigProperties.REMOTEURL)), OptionsFactory.getEdgeOptions());
                             break;
                         default:
                             logger.info("please pass the right browser on grid..");

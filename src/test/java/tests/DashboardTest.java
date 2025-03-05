@@ -23,23 +23,18 @@ public final class DashboardTest extends BaseTest {
 
     @FrameworkAnnotations(authors = {"Sai","Krishnan"},categories = {Categories.REGRESSION, Categories.SMOKE})
     @Test(dataProvider = "getData", dataProviderClass = DataProviderUtils.class)
-    public void test3(Map<String, String> map) throws Exception {
+    public void test3(Map<String, String> map) {
         System.out.println(map.get("username"));
         System.out.println(DecodeUtils.getdecodedString(map.get("password")));
-        login();
         Assert.assertTrue(true);
-        logout();
     }
 
     @FrameworkAnnotations(authors = {"Sai","Krishnan"},categories = {Categories.REGRESSION, Categories.SMOKE})
     @Test(dataProvider = "getData", dataProviderClass = DataProviderUtils.class)
-    public void test4(Map<String, String> map) throws Exception {
+    public void test4(Map<String, String> map) {
         System.out.println(map.get("username"));
         System.out.println(DecodeUtils.getdecodedString(map.get("password")));
-        login();
         Assert.assertTrue(true);
-        logout();
     }
-
 
 }
