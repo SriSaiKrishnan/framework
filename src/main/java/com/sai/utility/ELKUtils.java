@@ -25,7 +25,7 @@ public final class ELKUtils {
                     .all()
                     .body(map)
                     .when()
-                    .post("http://localhost:9200/regression/results");
+                    .post(PropertyUtils.get(ConfigProperties.ELKURL));
 
             Assert.assertEquals(response.statusCode(), 201);
 

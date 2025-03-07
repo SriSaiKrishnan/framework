@@ -1,6 +1,7 @@
 package com.sai.listener;
 
 import com.sai.annotations.FrameworkAnnotations;
+import com.sai.utility.ELKUtils;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestListener;
@@ -35,7 +36,7 @@ public class Listener implements ITestListener, ISuiteListener {
     @Override
     public void onTestSuccess(ITestResult result) {
         ExtentLogger.pass(result.getMethod().getMethodName() + " Passed");
-        //ELKUtils.sendResultsToELK(result.getMethod().getMethodName(),"Passed");
+        ELKUtils.sendResultsToELK(result.getMethod().getMethodName(),"pass");
     }
 
     @Override
@@ -43,13 +44,13 @@ public class Listener implements ITestListener, ISuiteListener {
         ExtentLogger.fail(result.getMethod().getMethodName() + " Failed",true);
         ExtentLogger.fail(result.getThrowable().toString());
         ExtentLogger.fail(Arrays.toString(result.getThrowable().getStackTrace()));
-        //ELKUtils.sendResultsToELK(result.getMethod().getMethodName(),"Failed");
+        ELKUtils.sendResultsToELK(result.getMethod().getMethodName(),"fail");
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
         ExtentLogger.skip(result.getMethod().getMethodName() + " Skipped",true);
-        //ELKUtils.sendResultsToELK(result.getMethod().getMethodName(),"Skipped");
+        ELKUtils.sendResultsToELK(result.getMethod().getMethodName(),"skip");
     }
 
 }
