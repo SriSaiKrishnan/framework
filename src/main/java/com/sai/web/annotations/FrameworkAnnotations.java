@@ -1,4 +1,4 @@
-package com.sai.annotations;
+package com.sai.web.annotations;
 
 import com.sai.enums.Categories;
 

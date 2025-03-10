@@ -1,4 +1,4 @@
-package com.sai.factories;
+package com.sai.web.factories;
 
 import com.sai.enums.ConfigProperties;
 import org.apache.logging.log4j.Level;

@@ -1,7 +1,7 @@
-package com.sai.base;
+package com.sai.web.base;
 
 import com.sai.enums.WaitStrategy;
-import com.sai.factories.ExplicitWaitFactory;
+import com.sai.web.factories.ExplicitWaitFactory;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

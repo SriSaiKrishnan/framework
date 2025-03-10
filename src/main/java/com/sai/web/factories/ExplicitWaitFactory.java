@@ -1,7 +1,7 @@
-package com.sai.factories;
+package com.sai.web.factories;
 
 import com.sai.constants.AppConstants;
-import com.sai.driver.DriverManager;
+import com.sai.web.driver.DriverManager;
 import com.sai.enums.WaitStrategy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

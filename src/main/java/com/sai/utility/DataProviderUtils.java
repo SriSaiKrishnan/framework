@@ -20,13 +20,13 @@ public final class DataProviderUtils {
     @DataProvider(parallel = true)
     public static Object[] getData(Method method){
 
-        String testname = method.getName();
+        String testName = method.getName();
         List<Map<String,String>> list = ExcelUtils.readExcel(dataSheetName);
         List<Map<String,String>> iterationList = new ArrayList<>();
 
         for (int i=0; i<list.size(); i++){
 
-            if(list.get(i).get("testname").equalsIgnoreCase(testname)
+            if(list.get(i).get("testname").equalsIgnoreCase(testName)
                     && list.get(i).get("execute").equalsIgnoreCase("yes")){
                 iterationList.add(list.get(i));
             }

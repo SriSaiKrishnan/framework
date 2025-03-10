@@ -1,6 +1,6 @@
-package com.sai.pages;
+package com.sai.web.pages;
 
-import com.sai.base.BasePage;
+import com.sai.web.base.BasePage;
 import com.sai.enums.WaitStrategy;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

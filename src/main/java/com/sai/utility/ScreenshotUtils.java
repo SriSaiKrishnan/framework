@@ -1,6 +1,6 @@
 package com.sai.utility;
 
-import com.sai.driver.DriverManager;
+import com.sai.web.driver.DriverManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 

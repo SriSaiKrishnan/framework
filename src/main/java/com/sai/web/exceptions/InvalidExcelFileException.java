@@ -1,4 +1,4 @@
-package com.sai.exceptions;
+package com.sai.web.exceptions;
 
 public class InvalidExcelFileException extends FrameworkException{
 

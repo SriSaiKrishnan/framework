@@ -1,6 +1,6 @@
 package com.sai.listener;
 
-import com.sai.annotations.FrameworkAnnotations;
+import com.sai.web.annotations.FrameworkAnnotations;
 import com.sai.utility.ELKUtils;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;

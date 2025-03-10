@@ -14,6 +14,7 @@ public enum ConfigProperties {
     SKIPPEDSTEPSSCREENSHOTS,
     RETRYFAILEDTESTS,
     SENDRESULTSTOELK,
-    ELKURL;
+    ELKURL,
+    BASEURL;
 
 }

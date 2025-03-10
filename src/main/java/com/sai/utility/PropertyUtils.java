@@ -2,7 +2,7 @@ package com.sai.utility;
 
 import com.sai.constants.AppConstants;
 import com.sai.enums.ConfigProperties;
-import com.sai.exceptions.InvalidPropertyFileException;
+import com.sai.web.exceptions.InvalidPropertyFileException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.io.FileInputStream;

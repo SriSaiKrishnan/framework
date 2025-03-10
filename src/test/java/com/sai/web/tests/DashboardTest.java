@@ -1,7 +1,7 @@
-package com.sai.tests;
+package com.sai.web.tests;
 
-import com.sai.annotations.FrameworkAnnotations;
-import com.sai.base.BaseTest;
+import com.sai.web.annotations.FrameworkAnnotations;
+import com.sai.web.base.BaseTest;
 import com.sai.enums.Categories;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;

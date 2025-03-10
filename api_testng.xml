@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="AutomationSuite">
+<suite name="API Automation Suite">
     <listeners>
         <listener class-name="com.sai.listener.Listener"/>
         <listener class-name="com.sai.listener.MethodInterceptor"/>
@@ -8,7 +8,7 @@
     </listeners>
     <test name="Test" thread-count="2" parallel="methods">
         <classes>
-            <class name="com.sai.tests.DashboardTest"/>
+            <class name="com.sai.api.tests.GetTest"/>
         </classes>
     </test>
 </suite>

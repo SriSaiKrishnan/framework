@@ -1,7 +1,7 @@
-package com.sai.driver;
+package com.sai.web.driver;
 
 import com.sai.enums.ConfigProperties;
-import com.sai.factories.DriverFactory;
+import com.sai.web.factories.DriverFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.sai.utility.PropertyUtils;
