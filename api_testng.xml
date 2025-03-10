@@ -9,6 +9,9 @@
     <test name="Test" thread-count="2" parallel="methods">
         <classes>
             <class name="com.sai.api.tests.GetTest"/>
+            <class name="com.sai.api.tests.PostTest"/>
+            <class name="com.sai.api.tests.UpdateTest"/>
+            <class name="com.sai.api.tests.DeleteTest"/>
         </classes>
     </test>
 </suite>
