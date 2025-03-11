@@ -22,6 +22,8 @@ public final class AppConstants {
 
     public static String getJsonFilePath(){ return JSON_TEST_DATA_PATH; }
 
+    public static String getResourcePath(){ return RESOURCE_PATH; }
+
     public static String getReportsFilePath() {
         try {
             if(PropertyUtils.get(ConfigProperties.OVERRIDE).equalsIgnoreCase("yes"))
