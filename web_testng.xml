@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="WEB Automation Suite">
     <listeners>
-        <listener class-name="com.sai.listener.Listener"/>
+        <listener class-name="com.sai.listener.WebListener"/>
         <listener class-name="com.sai.listener.MethodInterceptor"/>
         <listener class-name="com.sai.listener.AnnotationTransformer"/>
     </listeners>

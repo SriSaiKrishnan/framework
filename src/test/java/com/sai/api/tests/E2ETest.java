@@ -19,34 +19,51 @@ import com.sai.api.builder.EmployeeBuilder;
 import com.sai.api.pojo.Employee;
 import com.sai.api.requestbuilder.RequestBuilder;
 import com.sai.constants.AppConstants;
+import com.sai.enums.Categories;
 import com.sai.utility.FileUtils;
 import com.sai.utility.RandomUtils;
+import com.sai.web.annotations.FrameworkAnnotations;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
+import java.util.List;
 
 public class E2ETest {
 
+    @FrameworkAnnotations(authors = {"Sai","Krishnan"},categories = {Categories.REGRESSION, Categories.SMOKE})
     @Test
     public void validateE2ETest() {
 
-        int size = validateGetCall().asString().length();
+        Response getResponse = validateGetCall();
 
-        System.out.println(size);
+        List<Object> initialEmployees = getResponse.jsonPath().getList("$");
+        int initialSize = initialEmployees.size();
+
+        System.out.println("Initial Size: " + initialSize);
 
         validatePostCall();
 
-        Assert.assertNotEquals(size, validateGetCall().asString().length());
+        Response getUpdatedResponse =  validateGetCall();
+
+        List<Object> updatedEmployees = getUpdatedResponse.jsonPath().getList("$");
+        int updatedSize = updatedEmployees.size();
+
+        System.out.println("Updated Size: " + updatedSize);
+
+        Assert.assertEquals(updatedSize, initialSize+1);
 
         validateUpdateCall();
 
         validateDeleteCall();
 
-        Assert.assertEquals(size, validateGetCall().asString().length());
+        getUpdatedResponse =  validateGetCall();
+
+        updatedEmployees = getUpdatedResponse.jsonPath().getList("$");
+        updatedSize = updatedEmployees.size();
+        System.out.println("Updated Size: " + updatedSize);
+
+        Assert.assertEquals(updatedSize, initialSize);
 
     }
 
@@ -124,7 +141,7 @@ public class E2ETest {
     public void validateDeleteCall() {
 
         Response response = RequestBuilder
-                .buildPostRequestWithPathParam("id","981")
+                .buildPostRequestWithPathParam("id","220")
                 .delete("/employees/{id}");
 
         response

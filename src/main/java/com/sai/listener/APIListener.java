@@ -1,18 +1,17 @@
 package com.sai.listener;
 
-import com.sai.web.annotations.FrameworkAnnotations;
+import com.sai.reports.ExtentLogger;
+import com.sai.reports.ExtentReport;
 import com.sai.utility.ELKUtils;
+import com.sai.web.annotations.FrameworkAnnotations;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import com.sai.reports.ExtentLogger;
-import com.sai.reports.ExtentReport;
-import com.sai.utility.BrowserUtils;
 
 import java.util.Arrays;
 
-public class Listener implements ITestListener, ISuiteListener {
+public class APIListener implements ITestListener, ISuiteListener {
 
     @Override
     public void onStart(ISuite suite) {
@@ -26,11 +25,9 @@ public class Listener implements ITestListener, ISuiteListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-
-        ExtentReport.createTest(result.getMethod().getMethodName() + " " + BrowserUtils.getBrowserName() + " " + BrowserUtils.getBrowserVersion());
+        ExtentReport.createTest(result.getMethod().getMethodName());
         ExtentReport.addAuthors(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(FrameworkAnnotations.class).authors());
         ExtentReport.addCategories(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(FrameworkAnnotations.class).categories());
-
     }
 
     @Override

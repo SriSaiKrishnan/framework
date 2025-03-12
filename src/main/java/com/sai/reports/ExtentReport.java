@@ -34,13 +34,17 @@ public final class ExtentReport {
         ExtentManager.setExtentTest(extentReports.createTest(testcaseName));
     }
 
-    public static void addAuthors(String []authors){
+    public static void addInfo(String information){
+        ExtentManager.getExtentTest().info(information);
+    }
+
+    public static void addAuthors(String[] authors){
         for( String author : authors ){
             ExtentManager.getExtentTest().assignAuthor(author);
         }
     }
 
-    public static void addCategories(Categories[]categories){
+    public static void addCategories(Categories[] categories){
         for( Categories category : categories ){
             ExtentManager.getExtentTest().assignCategory(category.toString());
         }

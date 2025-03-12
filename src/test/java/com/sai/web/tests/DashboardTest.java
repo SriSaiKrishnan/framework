@@ -1,5 +1,6 @@
 package com.sai.web.tests;
 
+import com.sai.utility.BrowserUtils;
 import com.sai.web.annotations.FrameworkAnnotations;
 import com.sai.web.base.BaseTest;
 import com.sai.enums.Categories;
@@ -12,6 +13,7 @@ import com.sai.utility.DecodeUtils;
 import java.util.Map;
 
 public final class DashboardTest extends BaseTest {
+
 
     private DashboardTest(){
     }
