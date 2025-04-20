@@ -1,5 +1,6 @@
 package com.sai.web.base;
 
+import com.sai.reports.ExtentReport;
 import com.sai.web.driver.Driver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,9 +19,6 @@ public class BaseTest {
     public void setUp(Object[] data) {
         Map<String,String> map = (Map<String,String>)data[0];
         Driver.initializeDriver(map.get("browser"));
-    }
-
-    public void login(){
         new LoginPage()
                 .enterUsername("Admin")
                 .enterPassword("admin123")

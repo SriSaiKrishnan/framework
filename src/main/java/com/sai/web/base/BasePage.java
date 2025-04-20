@@ -44,4 +44,11 @@ public class BasePage {
         return text;
     }
 
+    protected void waitTenSeconds(){
+        long start = System.currentTimeMillis();
+        while (System.currentTimeMillis() - start < 10000) {
+            // Do nothing or check for a flag
+        }
+    }
+
 }

@@ -16,7 +16,7 @@ public class WebListener implements ITestListener, ISuiteListener {
 
     @Override
     public void onStart(ISuite suite) {
-            ExtentReport.createReport();
+        ExtentReport.createReport();
     }
 
     @Override

@@ -8,20 +8,20 @@ public final class FakerUtils {
 
     private static final Faker faker = new Faker();
 
-    static int getNumber(int startValue, int endValue) {
+    public static int getNumber(int startValue, int endValue) {
         return faker.number().numberBetween(startValue,endValue);
     }
 
-    static String getFirstname() {
+    public static String getFirstname() {
         return faker.name().firstName();
     }
 
-    static String getLastname() {
+    public static String getLastname() {
         return faker.name().lastName();
     }
 
-    static String getEmail() { return faker.name() + "@abc.com"; }
+    public static String getEmail() { return faker.name() + "@abc.com"; }
 
-    static String getPhonenumber() { return faker.phoneNumber().phoneNumber(); }
+    public static String getPhonenumber() { return faker.phoneNumber().phoneNumber(); }
 
 }
