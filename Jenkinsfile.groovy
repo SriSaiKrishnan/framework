@@ -1,32 +1,28 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3.9.1-eclipse-temurin-17' // customize for your project
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
+    agent any
 
     environment {
         GIT_REPO = 'https://github.com/SriSaiKrishnan/framework.git'
     }
 
     stages {
-        stage('Checkout') {
+        stage('Build in Docker') {
             steps {
-                git "${env.GIT_REPO}"
-            }
-        }
-
-        stage('Test') {
-            steps {
-                sh 'mvn clean test'
+                script {
+                    docker.image('maven:3.9.1-eclipse-temurin-17').inside('-v /var/run/docker.sock:/var/run/docker.sock') {
+                        sh "git clone ${env.GIT_REPO} repo"
+                        dir('repo') {
+                            sh 'mvn clean test'
+                        }
+                    }
+                }
             }
         }
     }
 
     post {
         always {
-            junit '**/target/surefire-reports/*.xml'
+            junit '**/repo/target/surefire-reports/*.xml'
         }
     }
 }
