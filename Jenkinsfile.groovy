@@ -20,9 +20,4 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            junit '**/repo/target/surefire-reports/*.xml'
-        }
-    }
 }
