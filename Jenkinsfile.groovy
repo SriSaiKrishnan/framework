@@ -6,6 +6,12 @@ pipeline {
     }
 
     stages {
+        stage('Cleanup Workspace') {
+            steps {
+                deleteDir()  // This cleans the workspace before proceeding
+            }
+        }
+
         stage('Build in Docker') {
             steps {
                 script {
@@ -19,5 +25,4 @@ pipeline {
             }
         }
     }
-
 }
