@@ -20,15 +20,15 @@ public final class OptionsFactory {
     public static ChromeOptions getChromeOptions() {
         try {
             chromeOptions = new ChromeOptions();
-            if (Boolean.parseBoolean(PropertyUtils.get(ConfigProperties.HEADLESS))) {
+            if (PropertyUtils.get(ConfigProperties.HEADLESS).equalsIgnoreCase("yes")) {
                 logger.info("Running tests in headless mode");
                 chromeOptions.addArguments("--headless");
             }
-            if (Boolean.parseBoolean(PropertyUtils.get(ConfigProperties.INCOGNITO))) {
+            if (PropertyUtils.get(ConfigProperties.INCOGNITO).equalsIgnoreCase("yes")) {
                 logger.info("Running tests in incognito mode");
                 chromeOptions.addArguments("--incognito");
             }
-            if (Boolean.parseBoolean(PropertyUtils.get(ConfigProperties.REMOTE))) {
+            if (PropertyUtils.get(ConfigProperties.REMOTE).equalsIgnoreCase("yes")) {
                 logger.info("Running tests in remote machine");
                 chromeOptions.addArguments("--disable-extensions");
                 chromeOptions.addArguments("--disable-popup-blocking");
@@ -44,15 +44,15 @@ public final class OptionsFactory {
     public static FirefoxOptions getFirefoxOptions(){
         try {
             firefoxOptions = new FirefoxOptions();
-            if (Boolean.parseBoolean(PropertyUtils.get(ConfigProperties.HEADLESS))) {
+            if (PropertyUtils.get(ConfigProperties.HEADLESS).equalsIgnoreCase("yes")) {
                 logger.info("Running tests in headless mode");
                 firefoxOptions.addArguments("--headless");
             }
-            if (Boolean.parseBoolean(PropertyUtils.get(ConfigProperties.INCOGNITO))) {
+            if (PropertyUtils.get(ConfigProperties.INCOGNITO).equalsIgnoreCase("yes")) {
                 logger.info("Running tests in incognito mode");
                 firefoxOptions.addArguments("--incognito");
             }
-            if (Boolean.parseBoolean(PropertyUtils.get(ConfigProperties.REMOTE))) {
+            if (PropertyUtils.get(ConfigProperties.REMOTE).equalsIgnoreCase("yes")) {
                 logger.info("Running tests in remote machine");
                 firefoxOptions.addArguments("--disable-extensions");
                 firefoxOptions.addArguments("--disable-popup-blocking");
@@ -68,15 +68,15 @@ public final class OptionsFactory {
     public static EdgeOptions getEdgeOptions(){
         try {
             edgeOptions = new EdgeOptions();
-            if (Boolean.parseBoolean(PropertyUtils.get(ConfigProperties.HEADLESS))) {
+            if (PropertyUtils.get(ConfigProperties.HEADLESS).equalsIgnoreCase("yes")) {
                 logger.info("Running tests in headless mode");
                 edgeOptions.addArguments("--headless");
             }
-            if (Boolean.parseBoolean(PropertyUtils.get(ConfigProperties.INCOGNITO))) {
+            if (PropertyUtils.get(ConfigProperties.INCOGNITO).equalsIgnoreCase("yes")) {
                 logger.info("Running tests in incognito mode");
                 edgeOptions.addArguments("--incognito");
             }
-            if (Boolean.parseBoolean(PropertyUtils.get(ConfigProperties.REMOTE))) {
+            if (PropertyUtils.get(ConfigProperties.REMOTE).equalsIgnoreCase("yes")) {
                 logger.info("Running tests in remote machine");
                 edgeOptions.addArguments("--disable-extensions");
                 edgeOptions.addArguments("--disable-popup-blocking");
